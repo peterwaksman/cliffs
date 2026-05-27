@@ -33,8 +33,8 @@ jobs:
           update: true
           install: >-
             make
-            gcc
             pkgconf
+            mingw-w64-ucrt-x86_64-gcc
             mingw-w64-ucrt-x86_64-SDL2
 
       - name: Build
