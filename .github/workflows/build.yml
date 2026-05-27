@@ -44,3 +44,17 @@ jobs:
       - name: Smoke test
         shell: msys2 {0}
         run: SDL_VIDEODRIVER=dummy ./cliffs.exe --smoke-test
+
+      - name: Package Windows app
+        shell: msys2 {0}
+        run: |
+          mkdir -p dist/cliffs
+          cp cliffs.exe dist/cliffs/
+          cp /ucrt64/bin/SDL2.dll dist/cliffs/
+          cp -r assets levels dist/cliffs/
+
+      - name: Upload Windows app
+        uses: actions/upload-artifact@v4
+        with:
+          name: cliffs-windows
+          path: dist/cliffs
