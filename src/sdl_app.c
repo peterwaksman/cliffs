@@ -489,7 +489,7 @@ static void queue_tone(App *app, unsigned pitch, unsigned duration_units)
                     envelope = 0.0f;
                 }
             }
-            samples[i] = (phase < 0.5f ? 0.15f : -0.15f) * envelope;
+            samples[i] = (phase < 0.5f ? 0.075f : -0.075f) * envelope;
             phase += phase_step;
             if (phase >= 1.0f) {
                 phase -= 1.0f;
