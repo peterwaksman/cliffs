@@ -627,7 +627,15 @@ void app_render_result(App *app, const Game *game)
         dst.h = 320;
         dst.x = (screen_width - dst.w) / 2;
         dst.y = 40;
-        SDL_RenderCopy(app->renderer, app->win_texture, NULL, &dst);
+//        SDL_RenderCopy(app->renderer, app->win_texture, NULL, &dst);
+        SDL_RenderCopyEx(
+            app->renderer,
+            app->win_texture,
+            NULL,
+            &dst,
+            90.0,
+            NULL,
+            SDL_FLIP_NONE);        
         start_row = 47;
     }
 
